@@ -7,6 +7,11 @@ ProducerConfig values:
 	retries = 2147483647						 //IMPORTANT 		 
 	
 	
+	//SET HIGH THROUGHPUT PRODUCER CONFIGS
+		linger.ms = 0						 //IMPORTANT 		 
+		batch.size = 16384						 //IMPORTANT 		 
+		compression.type = none						 //IMPORTANT 		 
+	
 	batch.size = 16384
 	bootstrap.servers = [127.0.0.1:9092]
 	buffer.memory = 33554432

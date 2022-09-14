@@ -24,6 +24,11 @@ public class WikimediaChangeProducer {
     	prop.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"127.0.0.1:9092");
     	prop.setProperty(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
     	prop.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
+
+    	//Batch Compression
+    	prop.setProperty(ProducerConfig.COMPRESSION_TYPE_CONFIG, "snappy");
+    	prop.setProperty(ProducerConfig.BATCH_SIZE_CONFIG, Integer.toString(32 * 1024));
+    	prop.setProperty(ProducerConfig.LINGER_MS_CONFIG, Integer.toString(20));
     	
     	log.info("003 Create Producer");
     	KafkaProducer<String, String > producer = new KafkaProducer<>(prop);
